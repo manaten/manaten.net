@@ -1,0 +1,239 @@
+.whale {
+  overflow: hidden;
+  width: 100%;
+  height: 19rem;
+  background-color: #77BFB3;
+  position: relative;
+  @media(width <= 40rem) {
+    height: 14rem;
+  }
+}
+
+.whale__inner {
+  width: 100%;
+  height: 100%;
+  /* SP表示で0.8倍にする */
+  @media(width <= 40rem) {
+    width: 125%;
+    height: 125%;
+    transform-origin: top left;
+    transform: scale(0.8);
+  }
+}
+
+.whale__whale-object, .whale__bird, .whale__whale-plate4::after {
+  background-image: url('/assets/images/whale_airship_1.embed.gif');
+}
+
+.whale__whale-body, .whale__cloud, .whale__island1, .whale__island2,
+.whale__whale-plate1::after, .whale__whale-plate2::after, .whale__whale-plate3::after,
+.whale__whale-plate5::after, .whale__whale-plate6::after, .whale__whale-plate7::after {
+  background-image: url('/assets/images/whale_airship_2.embed.png');
+}
+
+.whale__whale-plate1, .whale__whale-plate2, .whale__whale-plate3,
+.whale__whale-plate4, .whale__whale-plate5, .whale__whale-plate6, .whale__whale-plate7 {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+  &::after {
+    content: '';
+    display: block;
+    transition: transform 0.2s ease-in, background-position 0.1s step-end;
+    width: inherit;
+    height: inherit;
+    position: static;
+  }
+}
+
+
+@keyframes whale_floating {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.whale__cloud {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  background-position: 0 -226px;
+  background-repeat: repeat-x;
+}
+
+.whale__bird {
+  position: absolute;
+  top: 16px;
+  left: calc(50% - 162px);
+  background-position: -152px -294px;
+  width: 28px;
+  height: 20px;
+}
+.whale__island1 {
+  position: absolute;
+  bottom: 8px;
+  left: calc(50% - 25rem);
+  background-position: -252px 0;
+  width: 42px;
+  height: 50px;
+  animation: whale_floating 2s steps(6, start) -0.5s infinite;
+  @media(width <= 50rem) {
+    left: -21px;
+  }
+}
+.whale__island2 {
+  position: absolute;
+  bottom: 16px;
+  right: calc(50% - 25rem);
+  background-position: -252px -50px;
+  width: 52px;
+  height: 56px;
+  animation: whale_floating 2s steps(6, start) -1s infinite;
+  @media(width <= 50rem) {
+    right: -26px;
+  }
+}
+
+.whale__whale {
+  position: absolute;
+  top: calc(50% - 154px);
+  left: calc(50% - 162px);
+  width: 324px;
+  height: 284px;
+  animation: whale_floating 2s steps(6, start) infinite;
+}
+
+.whale__whale-body {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background-position: 0 -272px;
+  width: 324px;
+  height: 176px;
+}
+
+.whale__whale-object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: 0 0;
+  width: 324px;
+  height: 284px;
+}
+
+.whale__whale-plate1 {
+  left: 0;
+  top: 104px;
+  width: 112px;
+  height: 86px;
+
+  &::after {
+    background-position: 0 0;
+    transform-origin: right top;
+  }
+  &:hover::after {
+    background-position: 0 -136px;
+    transform: rotateX(180deg);
+  }
+}
+
+.whale__whale-plate2 {
+  left: 4px;
+  top: 190px;
+  width: 102px;
+  height: 46px;
+
+  &::after {
+    background-position: -4px -88px;
+    transform-origin: right bottom;
+  }
+  &:hover::after {
+    background-position: -114px -160px;
+    transform: rotateX(180deg);
+  }
+}
+
+.whale__whale-plate3 {
+  left: 92px;
+  top: 122px;
+  width: 140px;
+  height: 56px;
+
+  &::after {
+    background-position: -112px -50px;
+    transform-origin: right top;
+  }
+  &:hover::after {
+    transform: translate(128px, -54px);
+  }
+}
+
+.whale__whale-plate4 {
+  left: 92px;
+  top: 178px;
+  width: 140px;
+  height: 60px;
+
+  &::after {
+    background-position: 0 -284px;
+    transform-origin: right bottom;
+  }
+  &:hover::after {
+    transform: translate(128px, 60px);
+  }
+}
+.whale__whale-plate5 {
+  left: 210px;
+  top: 132px;
+  width: 102px;
+  height: 50px;
+
+  &::after {
+    background-position: -114px -108px;
+    transform-origin: right bottom;
+  }
+  &:hover::after {
+    transform: rotate(45deg);
+  }
+}
+.whale__whale-plate6 {
+  left: 210px;
+  top: 182px;
+  width: 102px;
+  height: 46px;
+
+  &::after {
+    background-position: -216px -108px;
+    transform-origin: right top;
+  }
+  &:hover::after {
+    transform: rotate(-45deg);
+  }
+}
+.whale__whale-plate7 {
+  left: 116px;
+  top: 74px;
+  width: 92px;
+  height: 48px;
+
+  &::after {
+    background-position: -136px 0;
+    transform-origin: right top;
+  }
+  &:hover::after {
+    background-position: -218px -160px;
+    transform: rotateY(180deg);
+  }
+}

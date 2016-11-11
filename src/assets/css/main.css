@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+@import "./reset.css";
+@import "./fonts.css";
+
+@import "./common.css";
+
+@import "./header.css";
+@import "./header-menu.css";
+@import "./whale.css";
+
+.content {
+  width: 56rem;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 1rem 2rem 3rem;
+  background-color: white;
+  overflow: hidden;
+
+  @media(width <= 40rem) {
+    padding: 0.5rem;
+  }
+
+  & > h1, & > h2 {
+    font-family: '8x8_bold', sans-serif;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    color: #666;
+  }
+  & > h1 {
+    font-size: 1.15rem;
+    border-left: solid 0.25rem color(#77BFB3 lightness(-30%));
+    margin: 2rem 0 0.75rem;
+  }
+  & > h2 {
+    font-size: 1rem;
+    border-left: solid 0.25rem #77BFB3;
+    margin: 1.75rem 0 0.75rem;
+  }
+
+  & > p {
+    padding: 0.25rem 0.5rem;
+    line-height: 1.5;
+  }
+}
+
+.footer-inner {
+  width: 64rem;
+  max-width: 100%;
+  margin: 0 auto;
+  color: #999;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 2rem 0 3rem;
+}

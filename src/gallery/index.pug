@@ -1,0 +1,83 @@
+extends ../assets/pug/common
+
+block title
+  title ギャラリー - MANA-DOT
+
+block content
+  -
+    middleItems = [
+      {width: '320', height: '240', src: 'fantasy_2.gif'},
+      {width: '200', height: '150', src: 'city_witch.gif'},
+      {width: '200', height: '150', src: 'cafe.gif'},
+      {width: '150', height: '150', src: 'alice.gif'},
+      {width: '150', height: '150', src: 'august_20111122.gif'},
+      {width: '150', height: '150', src: 'hina_20120303.gif'},
+      {width: '170', height: '180', src: 'yuka_yuyu_20120211.gif'},
+      {width: '150', height: '150', src: 'yomi_20120201.gif'},
+      {width: '128', height: '128', src: 'aki_20110605.gif'},
+      {width: '128', height: '128', src: 'alice_20110611.gif'},
+      {width: '150', height: '150', src: 'articuno.gif'},
+      {width: '150', height: '150', src: 'elfoon.gif'},
+      {width: '120', height: '140', src: 'hina_20110721.png'},
+      {width: '135', height: '135', src: 'hina_20110804.gif'},
+      {width: '150', height: '150', src: 'yuyuko.gif'},
+      {width: '150', height: '150', src: 'patchouli_.gif'},
+      {width: '150', height: '150', src: 'patchouli2.gif'},
+      {width: '150', height: '150', src: 'remi_flan.gif'},
+      {width: '100', height: '110', src: 'kantam03.gif'}
+    ]
+    iconItems = [
+      {width: '48', height: '48', src: 'articuno_anim_.gif'},
+      {width: '48', height: '48', src: 'arcanine_anim_.gif'},
+      {width: '48', height: '48', src: 'elfoon_anim_.gif'},
+      {width: '48', height: '48', src: 'glaceon_anim_.gif'},
+      {width: '48', height: '48', src: 'gastrodon_anim_.gif'},
+      {width: '48', height: '48', src: 'gardevoir_anim_.gif'},
+      {width: '48', height: '48', src: 'quilava_anim_.gif'},
+      {width: '48', height: '48', src: 'charlotte.gif'},
+      {width: '48', height: '48', src: 'icon.gif'}
+    ]
+
+  section.content
+    h1 GALLERY
+    p 今まで描いたドット絵を展示しています。
+
+    style.
+      ul.imageList {
+        list-style: none;
+      }
+      ul.imageList li {
+        display: inline-block;
+        margin: 4px;
+        vertical-align: bottom;
+      }
+
+    h2 MIDDLE SIZE
+    ul.imageList
+      each item in middleItems
+        li
+          img(src=('/gallery/images/' + item.src) width=item.width height=item.height alt=item.src)
+
+    h2 ICON SIZE
+    ul.imageList
+      each item in iconItems
+        li
+          img(src=('/gallery/images/' + item.src) width=item.width height=item.height alt=item.src)
+
+    link(rel="stylesheet" type="text/css" media="all" href="http://manaten.net/repos/pixel-tip/dst/pixel-tip.css")
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    script(src="http://manaten.net/repos/pixel-tip/dst/pixel-tip.js")
+    script.
+      $(function() {
+        var tips = [];
+        $('img').each(function(_, img) {
+          var $img = $(img);
+          var tip = new PixelTip($img.attr('src'));
+          tips.push(tip);
+          $img.hover(function() {
+            var pos = $img.offset();
+            $.each(tips, function(_, v) { v.hide(); });
+            tip.show(pos.left-10, pos.top-10);
+          }, null);
+        });
+      });

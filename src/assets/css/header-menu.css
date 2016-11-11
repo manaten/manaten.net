@@ -1,0 +1,115 @@
+/*メニューを開くボタン(SP時のみ)*/
+.header-menu-button {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+
+  @media(width <= 40rem) {
+    display: block;
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-position: 0 -32px;
+  }
+  @nest .header-menu-button-check:checked + & {
+    background-color: #CCC;
+    opacity: 0.6;
+  }
+}
+
+.header-menu-button-check {
+  display: none;
+}
+
+/* メニュー */
+.header-menu {
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: calc(100% - 12rem);
+  display: inline-block;
+  text-align: right;
+
+  @media(width <= 40rem) {
+    display: block;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 3.5rem;
+    width: 100%;
+    text-align: left;
+    background-color: color(white alpha(-20%));
+
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top center;
+    /*transition: visibility 0s linear 0.2s, transform 0.2s ease-in-out;*/
+    @nest .header-menu-button-check:checked + .header-menu-button + & {
+      visibility: visible;
+      transform: scaleY(1);
+      transition: visibility 0.2s linear, transform 0.2s ease-in-out;
+    }
+  }
+}
+
+.header-menu__item-link {
+  transition: opacity 0.3s ease;
+  &, &:hover, &:active, &:link, &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.header-menu__item {
+  vertical-align: middle;
+  display: inline-block;
+  font-weight: bold;
+  margin: 0.5rem 1rem;
+
+  @media(width <= 40rem) {
+    display: block;
+    margin: 0.125rem 0 0;
+    padding: 1rem;
+    background-color: color(white alpha(-50%));
+  }
+
+  /* アイコン */
+  &::before {
+    vertical-align: top;
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.25rem;
+  }
+  @nest .header-menu__item-link:nth-child(1) > &::before {background-position: -32px -32px;}
+  @nest .header-menu__item-link:nth-child(2) > &::before {background-position: -48px -32px;}
+  @nest .header-menu__item-link:nth-child(3) > &::before {background-position: -64px -32px;}
+  @nest .header-menu__item-link:nth-child(4) > &::before {background-position: -80px -32px;}
+}
+
+.header-menu__item-text {
+  vertical-align: top;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: #555;
+  @media(width <= 40rem) {
+    color: #777;
+  }
+}

@@ -1,0 +1,39 @@
+div.header-area
+  header.header
+    .header-inner
+      .header-logo-area
+        a.header-logo-area__link(href='http://manaten.net')
+          .header-logo-area__text MANA
+            span.header-logo-area__text--sub -DOT
+
+      input#header-menu-button-check(type='checkbox').header-menu-button-check
+      label(for='header-menu-button-check').header-menu-button
+      ul.header-menu
+        -
+          items = [
+            {url: 'http://manaten.net/', name: 'HOME'},
+            {url: 'http://blog.manaten.net/', name: 'BLOG'},
+            {url: 'http://manaten.net/gallery', name: 'GALLERY'},
+            {url: 'http://dot.manaten.net/', name: 'DOT BBS'}
+          ]
+        each item in items
+          a.header-menu__item-link(href=item.url)
+            li.header-menu__item
+              span.header-menu__item-text=item.name
+
+  .whale
+    .whale__inner
+      .whale__cloud
+      .whale__bird
+      .whale__island1
+      .whale__island2
+      .whale__whale
+        .whale__whale-body
+        .whale__whale-object
+        button(type="button").whale__whale-plate5
+        button(type="button").whale__whale-plate6
+        button(type="button").whale__whale-plate7
+        button(type="button").whale__whale-plate3
+        button(type="button").whale__whale-plate4
+        button(type="button").whale__whale-plate1
+        button(type="button").whale__whale-plate2
