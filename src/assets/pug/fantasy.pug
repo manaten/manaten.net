@@ -1,0 +1,41 @@
+link(rel="stylesheet" href="/assets/css/fantasy.css")
+#fantasy.pixelParallax
+  .BG2(data-zFactor="-300")
+  .BG1(data-zFactor="-250")
+  .Volcano(data-zFactor="100")
+  .Treasure(data-zFactor="-50")
+  .Smoke(data-zFactor="100")
+  .Dragon(data-zFactor="100")
+  .Fighter(data-zFactor="300")
+  .Mage(data-zFactor="350")
+  .Priest(data-zFactor="500")
+
+script(type='text/javascript' src='//wzrd.in/standalone/raf@latest')
+script(type='text/javascript').
+  const layers = [].map.call(document.querySelector('div#fantasy.pixelParallax').childNodes, function (node) {
+    return {node: node, zFactor: parseInt(node.getAttribute('data-zFactor')) / 10000};
+  });
+  const mouceHandler = function (ev) {
+    const dx = ev.clientX - (window.innerWidth / 2);
+    const dy = ev.clientY - (window.innerHeight / 2);
+    raf(function () {
+      layers.forEach(function (layer) {
+        layer.node.style.transform = 'translate(' + (dx * layer.zFactor * 2) + 'px,' + (dy * layer.zFactor * 2) + 'px)';
+      });
+    });
+  };
+  const motionHandler = function (ev) {
+    const dy = (window.innerHeight / 2) + ev.accelerationIncludingGravity.y * 100;
+    const dx = (window.innerWidth / 2) - ev.accelerationIncludingGravity.x * 100;
+    raf(function () {
+      layers.forEach(function (layer) {
+        layer.node.style.transform = 'translate(' + (dx * layer.zFactor) + 'px,' + (dy * layer.zFactor) + 'px)';
+      });
+    });
+  };
+  if (navigator.userAgent.search(/(iPhone|iPad|Android)/) !== -1) {
+    window.addEventListener('devicemotion', motionHandler);
+  } else {
+    document.body.addEventListener('mousemove', mouceHandler);
+    window.addEventListener('resize', mouceHandler);
+  }

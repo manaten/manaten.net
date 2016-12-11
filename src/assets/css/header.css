@@ -1,0 +1,57 @@
+.header-logo-area__text,
+.header-menu__item::before,
+.header-menu-button::before,
+.categories > a::before { /* はてなブログ用 */
+  background-image: url(/assets/images/icons.embed.png);
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.header-area {
+  width: 100%;
+  background-color: #77BFB3;
+}
+
+.header {
+  width: 100%;
+  background-color: #FEFEFE;
+  border-bottom: solid 1px #999;
+}
+.header-inner {
+  width: 64rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.75rem 0;
+  position: relative;
+}
+
+/* ロゴ */
+.header-logo-area {
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 12rem;
+  display: inline-block;
+  padding-left: 1.5rem;
+  text-align: left;
+
+  @media(width <= 40rem) {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+}
+.header-logo-area__link {
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.header-logo-area__text {
+  vertical-align: middle;
+  display: inline-block;
+  width: 144px;
+  height: 32px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
