@@ -87,10 +87,8 @@ a.keyword {
   margin-bottom: 10rem;
 }
 .entry-header {
-  padding-left: 5rem;
   margin-bottom: 1rem;
   position: relative;
-  min-height: 4.5rem;
 }
 .entry-title {
   margin: 0;
@@ -100,49 +98,14 @@ a.keyword {
 }
 
 /* 日付 */
-.entry-header > .date {
+.date {
   font-family: 'Bungee', cursive;
   display: block;
-  position: absolute;
-  top: -1rem;
-  left: 0;
-  background-color: #476;
-  border-radius: 50%;
-  width: 4.5rem;
-  height: 4.5rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  font-size: 1.125rem;
-  text-align: center;
-  color: white;
-  & a {
-    text-decoration: none;
-    color: inherit;
-  }
-  & .hyphen {
-    display: none;
-  }
-  & .date-year {
-    font-size: 1rem;
-    padding: 0.75rem 0 0.5rem;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-  & .date-month {
-    display: inline;
-    &::after {
-      content: '/';
-    }
-  }
-  & .date-day {
-    display: inline;
-  }
 }
 
 /* カテゴリ */
 .categories {
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
   & > a {
     display: block;
     float: left;
@@ -154,9 +117,7 @@ a.keyword {
     color: #EEE;
     padding: 0.25rem 0.5rem 0.25rem 0.125rem;
     transition: opacity 0.2s ease-in-out;
-    &:not(:nth-child(1)) {
-      margin-left: 0.5rem;
-    }
+    margin: 0.5rem 0.5rem 0 0;
     &:hover {
       opacity: 0.5;
     }
@@ -425,6 +386,7 @@ a.keyword {
   width: 25%;
   box-sizing: border-box;
   padding: 0.5rem;
+  margin-bottom: 2rem;
   font-size: 0.85rem;
   line-height: 1.5;
   @media (width <= 40rem) {
@@ -608,9 +570,6 @@ a.keyword {
           text-decoration: none;
         }
       }
-    }
-    & .date {
-      font-family: 'Bungee', cursive;
     }
   }
   & .categories a {
