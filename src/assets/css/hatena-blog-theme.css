@@ -113,7 +113,7 @@ a.keyword {
     text-decoration: none;
     line-height: 1rem;
     border-radius: 0.25rem;
-    background-color: #476;
+    background-color: color(#77BFB3 lightness(40%));
     color: #EEE;
     padding: 0.25rem 0.5rem 0.25rem 0.125rem;
     transition: opacity 0.2s ease-in-out;
