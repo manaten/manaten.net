@@ -9,7 +9,7 @@
     "deploy": "npm run build && npm run sync",
     "watch": "webpack --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sync": "rsync -av -e ssh dist/ www.manaten:blog.manaten.net"
+    "sync": "gsutil rsync -R dist gs://manaten.net/"
   },
   "repository": {
     "type": "git",
