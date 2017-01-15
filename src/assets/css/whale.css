@@ -25,7 +25,7 @@
   background-image: url('/assets/images/whale_airship_1.embed.gif');
 }
 
-.whale__whale-body, .whale__cloud, .whale__island1, .whale__island2,
+.whale__whale-body, .whale__cloud, .whale__island1, .whale__island2, .whale__sun,
 .whale__whale-plate1::after, .whale__whale-plate2::after, .whale__whale-plate3::after,
 .whale__whale-plate5::after, .whale__whale-plate6::after, .whale__whale-plate7::after {
   background-image: url('/assets/images/whale_airship_2.embed.png');
@@ -69,7 +69,7 @@
   left: 0;
   width: 100%;
   height: 46px;
-  background-position: 0 -226px;
+  background-position: 0 -478px;
   background-repeat: repeat-x;
 }
 
@@ -85,9 +85,9 @@
   position: absolute;
   bottom: 8px;
   left: calc(50% - 25rem);
-  background-position: -252px 0;
+  background-position: 0 -398px;
   width: 42px;
-  height: 50px;
+  height: 80px;
   animation: whale_floating 2s steps(6, start) -0.5s infinite;
   @media(width <= 50rem) {
     left: -21px;
@@ -97,12 +97,23 @@
   position: absolute;
   bottom: 16px;
   right: calc(50% - 25rem);
-  background-position: -252px -50px;
+  background-position: -42px -398px;
   width: 52px;
-  height: 56px;
+  height: 80px;
   animation: whale_floating 2s steps(6, start) -1s infinite;
   @media(width <= 50rem) {
     right: -26px;
+  }
+}
+.whale__sun {
+  position: absolute;
+  top: -8px;
+  right: calc(50% - 22rem);
+  background-position: -276px 0;
+  width: 48px;
+  height: 48px;
+  @media(width <= 50rem) {
+    right: 8px;
   }
 }
 
@@ -119,7 +130,7 @@
   position: absolute;
   top: 70px;
   left: 0;
-  background-position: 0 -272px;
+  background-position: 0 -222px;
   width: 324px;
   height: 176px;
 }
