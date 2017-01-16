@@ -3,6 +3,7 @@
   width: 100%;
   height: 19rem;
   background-color: #77BFB3;
+  background-image: linear-gradient(to bottom, #77BFB3 60%, color(#77BFB3 lightness(68%)));
   position: relative;
   @media(width <= 40rem) {
     height: 14rem;
