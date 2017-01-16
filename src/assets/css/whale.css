@@ -90,7 +90,7 @@
   height: 80px;
   animation: whale_floating 2s steps(6, start) -0.5s infinite;
   @media(width <= 50rem) {
-    left: -21px;
+    left: -6px;
   }
 }
 .whale__island2 {
@@ -102,7 +102,7 @@
   height: 80px;
   animation: whale_floating 2s steps(6, start) -1s infinite;
   @media(width <= 50rem) {
-    right: -26px;
+    right: -6px;
   }
 }
 .whale__sun {
