@@ -23,6 +23,7 @@
   "homepage": "https://github.com/manaten/manaten.net#readme",
   "devDependencies": {
     "clean-webpack-plugin": "0.1.14",
+    "copy-webpack-plugin": "4.0.1",
     "css-loader": "0.25.0",
     "deasync": "0.1.9",
     "detect-port": "1.0.5",

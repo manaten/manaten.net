@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const detectPort = require('detect-port');
 const deasync = require('deasync');
@@ -63,7 +64,8 @@ const config = {
   },
   devtool  : 'source-map',
   plugins  : [
-    new CleanWebpackPlugin([PATHS.dist])
+    new CleanWebpackPlugin([PATHS.dist]),
+    new CopyWebpackPlugin([{from: 'blog-entries/images', to: 'wp-content/uploads'}])
   ],
   devServer: {
     host          : '0.0.0.0',
