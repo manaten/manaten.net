@@ -6,10 +6,9 @@
   "scripts": {
     "build": "webpack --progress",
     "debug": "webpack-dev-server",
-    "deploy": "npm run build && npm run sync",
+    "deploy": "npm run build && gh-pages -d dist -b gh-pages",
     "watch": "webpack --progress --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sync": "rsync -av -e ssh dist/ www.manaten:blog.manaten.net"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -36,6 +35,7 @@
     "pug-html-loader": "^1.0.9",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.10"
+    "webpack-dev-server": "^2.1.0-beta.10",
+    "gh-pages": "^0.12.0"
   }
 }
