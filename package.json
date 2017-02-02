@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --progress",
     "debug": "webpack-dev-server",
-    "deploy": "npm run build && gh-pages -d dist -b gh-pages",
+    "deploy": "run-s build deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d dist -b gh-pages",
     "watch": "webpack --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,14 +29,16 @@
     "detect-port": "^1.0.5",
     "extract-loader": "^0.0.2",
     "file-loader": "^0.9.0",
+    "gh-pages": "^0.12.0",
     "html-loader": "^0.4.4",
+    "npm-run-all": "^4.0.1",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^1.1.1",
     "postcss-smart-import": "^0.5.1",
     "pug-html-loader": "^1.0.9",
     "url-loader": "^0.5.7",
-    "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.10",
-    "gh-pages": "^0.12.0"
-  }
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.3"
+  },
+  "dependencies": {}
 }

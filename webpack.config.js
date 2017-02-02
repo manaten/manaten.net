@@ -28,29 +28,29 @@ const config = {
       {
         test   : /\.(gif|png|ico|eot|svg|ttf|woff)$/,
         exclude: /\.embed\.(gif|png)$/,
-        use    : 'file?name=[path][name].[ext]'
+        use    : 'file-loader?name=[path][name].[ext]'
       },
       {
         test: /\.embed\.(gif|png)$/,
-        use : 'url'
+        use : 'url-loader'
       },
       {
         test: /\.pug$/,
         use : [
-          'file?name=[path][name].html',
-          'extract',
-          `html?attrs=img:src link:href&root=${PATHS.src}`,
-          'pug-html?exports=false'
+          'file-loader?name=[path][name].html',
+          'extract-loader',
+          `html-loader?attrs=img:src link:href&root=${PATHS.src}`,
+          'pug-html-loader?exports=false'
         ]
       },
       {
         test: /\.css$/,
         use : [
-          'file?name=[path][name].css',
-          'extract',
-          `css?minimize&root=${PATHS.src}`,
+          'file-loader?name=[path][name].css',
+          'extract-loader',
+          `css-loader?minimize&root=${PATHS.src}`,
           {
-            loader : 'postcss',
+            loader : 'postcss-loader',
             options: {
               plugins: [
                 require('postcss-smart-import')(),
@@ -65,7 +65,10 @@ const config = {
   devtool  : 'source-map',
   plugins  : [
     new CleanWebpackPlugin([PATHS.dist]),
-    new CopyWebpackPlugin([{from: 'blog-entries/images', to: 'wp-content/uploads'}])
+    new CopyWebpackPlugin([
+      {from: 'blog-entries/images', to: 'wp-content/uploads'},
+      {from: 'CNAME', to: ''}
+    ])
   ],
   devServer: {
     host          : '0.0.0.0',
