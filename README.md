@@ -1,13 +1,13 @@
 # manaten.net
 
-# development
+## development
 
 ```sh
 yarn install
 yarn debug
 ```
 
-# deployment
+## deployment
 
 ```sh
 yarn deploy
