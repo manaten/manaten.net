@@ -1,7 +1,9 @@
 @keyframes anime {
-  0%, 80% {
+  0%,
+  80% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -26,7 +28,7 @@ div#fantasy div.Priest {
   animation: anime 5s ease -3.5s 1 alternate;
   width: 160px;
   height: 192px;
-  background-position: -640px -0px;
+  background-position: -640px 0;
   left: 160px;
   top: 160px;
   z-index: 9;
@@ -55,7 +57,7 @@ div#fantasy div.Fighter {
 div#fantasy div.Smoke {
   width: 480px;
   height: 192px;
-  background-position: -0px -224px;
+  background-position: 0 -224px;
   left: -256px;
   top: 224px;
   z-index: 6;
@@ -67,14 +69,14 @@ div#fantasy div.Dragon {
   height: 448px;
   background-position: -544px -416px;
   left: -320px;
-  top: 0px;
+  top: 0;
   z-index: 5;
 }
 
 div#fantasy div.Treasure {
   width: 224px;
   height: 192px;
-  background-position: -800px -0px;
+  background-position: -800px 0;
   left: -224px;
   top: 192px;
   z-index: 4;
@@ -83,7 +85,7 @@ div#fantasy div.Treasure {
 div#fantasy div.Volcano {
   width: 480px;
   height: 160px;
-  background-position: -0px -64px;
+  background-position: 0 -64px;
   left: -256px;
   top: 320px;
   z-index: 3;
@@ -92,7 +94,7 @@ div#fantasy div.Volcano {
 div#fantasy div.BG1 {
   width: 544px;
   height: 288px;
-  background-position: -0px -416px;
+  background-position: 0 -416px;
   left: -288px;
   top: 32px;
   z-index: 2;
@@ -101,7 +103,7 @@ div#fantasy div.BG1 {
 div#fantasy div.BG2 {
   width: 416px;
   height: 64px;
-  background-position: -0px -0px;
+  background-position: 0 0;
   left: -224px;
   top: 32px;
   z-index: 1;
@@ -119,7 +121,7 @@ div#fantasy div.BG2 {
   div#fantasy div.Priest {
     width: 80px;
     height: 96px;
-    background-position: -320px -0px;
+    background-position: -320px 0;
     left: 80px;
     top: 80px;
   }
@@ -143,7 +145,7 @@ div#fantasy div.BG2 {
   div#fantasy div.Smoke {
     width: 240px;
     height: 96px;
-    background-position: -0px -112px;
+    background-position: 0 -112px;
     left: -128px;
     top: 112px;
   }
@@ -159,7 +161,7 @@ div#fantasy div.BG2 {
   div#fantasy div.Treasure {
     width: 112px;
     height: 96px;
-    background-position: -400px -0px;
+    background-position: -400px 0;
     left: -112px;
     top: 96px;
   }
@@ -167,7 +169,7 @@ div#fantasy div.BG2 {
   div#fantasy div.Volcano {
     width: 240px;
     height: 80px;
-    background-position: -0px -32px;
+    background-position: 0 -32px;
     left: -128px;
     top: 160px;
   }
@@ -175,7 +177,7 @@ div#fantasy div.BG2 {
   div#fantasy div.BG1 {
     width: 272px;
     height: 144px;
-    background-position: -0px -208px;
+    background-position: 0 -208px;
     left: -144px;
     top: 16px;
   }
@@ -183,7 +185,7 @@ div#fantasy div.BG2 {
   div#fantasy div.BG2 {
     width: 208px;
     height: 32px;
-    background-position: -0px -0px;
+    background-position: 0 0;
     left: -112px;
     top: 16px;
   }

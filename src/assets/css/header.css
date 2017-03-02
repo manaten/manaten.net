@@ -9,14 +9,15 @@
 
 .header-area {
   width: 100%;
-  background-color: #77BFB3;
+  background-color: #77bfb3;
 }
 
 .header {
   width: 100%;
-  background-color: #FEFEFE;
+  background-color: #fefefe;
   border-bottom: solid 1px #999;
 }
+
 .header-inner {
   width: 64rem;
   max-width: 100%;
@@ -34,18 +35,21 @@
   padding-left: 1.5rem;
   text-align: left;
 
-  @media(width <= 40rem) {
+  @media (width <= 40rem) {
     width: 100%;
     padding: 0;
     text-align: center;
   }
 }
+
 .header-logo-area__link {
   transition: opacity 0.3s ease;
+
   &:hover {
     opacity: 0.6;
   }
 }
+
 .header-logo-area__text {
   vertical-align: middle;
   display: inline-block;
