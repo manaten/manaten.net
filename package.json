@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/manaten/manaten.net/issues"
   },
-  "homepage": "https://github.com/manaten/manaten.net#readme",
+  "homepage": "http://manaten.net",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.14",
     "copy-webpack-plugin": "^4.0.1",
