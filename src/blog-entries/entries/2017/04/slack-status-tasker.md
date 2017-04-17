@@ -50,7 +50,7 @@ http getはNetカテゴリの中にあります。http getの内容はこんな�
 ![slack status](http://manaten.net/wp-content/uploads/2017/04/slack-status-tasker-06.png)
 
 [users.profile.set](https://api.slack.com/methods/users.profile.set) でstatusを変更することができます。
-slack tokenを発行し、tokenとprofileにJSONオブジェクトを与えています。ここでhttp getの設定が正しいかどうかは、task editの画面で ▶ ボタンを
+slack tokenを発行し、profileにJSONオブジェクトを与えています。ここでhttp getの設定が正しいかどうかは、task editの画面で ▶ ボタンを
 押すことで確認できます。指定したとおりにstatusが変更されればOKです。(slack apiは失敗しても200を返すためtaskerではエラーにならない点が少し罠です)
 
 ## profileの設定
