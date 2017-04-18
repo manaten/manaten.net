@@ -84,6 +84,8 @@ wifiが切れた瞬間は瞬間的にネットワークが存在してない状�
 リトライが設定できればいいのですが、軽く調べた感じだととても面倒そうであったため、http getの前にwaitを15秒程度挟んでいます。
 もっと良いやり方があったら教えていただきたいところ。
 
+追記: 「外出中」へ変更する条件を「Wifiが切れたとき」ではなく、「モバイルに繋がったとき」にすると良さそうです。
+
 # 参考リンク
 
 - [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en) - 様々な条件に基づいてタスクを実行できるAndroidアプリ
