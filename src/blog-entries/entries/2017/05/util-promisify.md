@@ -16,7 +16,7 @@ categories: [javascript,promise]
 
 コールバック関数を伴う非同期関数、たとえば `fs.readdir` は次のように使います。
 
-```js
+```javascript
 fs.readdir(__dirname, (err, result) => {
   console.log(result);
 });
@@ -27,7 +27,7 @@ fs.readdir(__dirname, (err, result) => {
 
 そこで、 `promisify` 関数を使うと `fs.readdir` をPromiseを返す関数化でき、上記処理は次のように書けます。
 
-```js
+```javascript
 const {promisify} = require('util');
 promisify(fs.readdir)(__dirname)
   .then(result => console.log(result));
@@ -35,7 +35,7 @@ promisify(fs.readdir)(__dirname)
 
 また、最近のNode.jsではasync/awaitがサポートされているため、次のように書くこともできます。
 
-```js
+```javascript
 const result = await promisify(fs.readdir)(__dirname);
 console.log(result);
 ```
@@ -50,7 +50,7 @@ npmには便利なパッケージがコールバックスタイルで用意さ�
 
 例えばmysqlのクエリ実行などです。
 
-```js
+```javascript
 const {promisify} = require('util');
 const mysql = require('mysql');
 const conn = mysql.createConnection({...});
@@ -75,13 +75,13 @@ TypeError: Cannot read property 'typeCast' of undefined
 では、以下のような記述ができるようになっています。
 
 
-```js
+```javascript
 const {promisify} = require('bluebird');
 const result = await promisify(conn.query, {context: conn})('SELECT 1 + 2 AS solution');
 console.log(result);
 ```
 
-```js
+```javascript
 const promisify = require('es6-promisify');
 const result = await promisify(conn.query, conn)('SELECT 1 + 2 AS solution');
 console.log(result);
@@ -95,7 +95,7 @@ console.log(result);
 ですがよく見ると、 `promisify` の生成する関数は、その関数の `this` を元になった関数にも `this` として渡す挙動になっているようです([参考](https://github.com/nodejs/node/blob/v8.0.0/lib/internal/util.js#L229))。
 ですので、次のように、 `promisify` で生成された関数に `this` を束縛することで正しく動作させることができます。
 
-```js
+```javascript
 const {promisify} = require('util');
 const result = await promisify(conn.query).bind(conn)('SELECT 1 + 2 AS solution');
 console.log(result);
@@ -106,13 +106,13 @@ console.log(result);
 ## bind-operator が実装されたら・・・
 余談ですが、 [proposal-bind-operator](https://github.com/tc39/proposal-bind-operator) が実装されれば、次のように書くことができます。
 
-```js
+```javascript
 const result = await conn::(promisify(conn.query))('SELECT 1 + 2 AS solution');
 ```
 
 または
 
-```js
+```javascript
 const result = await promisify(::conn.query)('SELECT 1 + 2 AS solution');
 ```
 
