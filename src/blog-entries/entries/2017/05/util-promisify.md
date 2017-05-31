@@ -1,9 +1,16 @@
+<!--
+title: 
+date:  2017-05-31 12:00
+categories: [javascript,promise]
+-->
+
 先日Node.js8 がリリースされました [参考](https://nodejs.org/en/blog/release/v8.0.0/) 。
 追加機能の中に `util.promisify` というものがあります。これは、すでに
 [bluebird](http://bluebirdjs.com/docs/api/promise.promisify.html) や
 [es6-promisify](https://www.npmjs.com/package/es6-promisify) といったパッケージで提供されていた、
 コールバック関数を伴う非同期関数をPromiseを返す関数化するユーティリティ関数ですが、今回のリリースでNode本体に含まれるようになったようです。
 
+<!-- more -->
 
 # 何に使うのか
 
