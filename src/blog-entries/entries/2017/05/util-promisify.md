@@ -40,7 +40,7 @@ const result = await promisify(fs.readdir)(__dirname);
 console.log(result);
 ```
 
-npmには便利なパッケージがコールバックスタイルで用意されていることも多く、こういった資産をモダンなPromiseスタイルやasync/awaitスタイルのコードで利用するために promisify は便利な存在です。
+npmには便利なパッケージがコールバックスタイルで用意されていることも多く、こういった資産をモダンなPromiseスタイルやasync/awaitスタイルのコードで利用するために `promisify` は便利な存在です。
 
 
 # thisの扱いについて
