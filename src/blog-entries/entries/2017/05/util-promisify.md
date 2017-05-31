@@ -25,7 +25,7 @@ fs.readdir(__dirname, (err, result) => {
 しかし、現状JavaScriptでの非同期処理関数は、コールバックスタイルよりもPromiseを返す関数のほうがメジャーであり、
 他の関数と合わせて使う上で不便です。また、ネストしたときの見通しもあまり良くないです。
 
-そこで、promisify関数を使うと `fs.readdir` をPromiseを返す関数化でき、上記処理は次のように書けます。
+そこで、 `promisify` 関数を使うと `fs.readdir` をPromiseを返す関数化でき、上記処理は次のように書けます。
 
 ```js
 const {promisify} = require('util');
