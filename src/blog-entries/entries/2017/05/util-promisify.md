@@ -45,14 +45,14 @@ npmには便利なパッケージがコールバックスタイルで用意さ�
 
 # thisの扱いについて
 
-ところで、普通の非同期関数をpromisifyする場合は問題ないのですが、オブジェクトのメソッドをPromise化するときは単純には行きません。
+ところで、普通の非同期関数を `promisify` する場合は問題ないのですが、オブジェクトのメソッドを `promisify` する場合は単純には行きません。
 メソッドはその実装で `this` を利用しているため、何も考えずにメソッドを `promisify` の引数にしてしまうと、 `this` を参照できなくなってしまうからです。
 
 例えばmysqlのクエリ実行などです。
 
 ```js
 const {promisify} = require('util');
-const mysql      = require('mysql');
+const mysql = require('mysql');
 const conn = mysql.createConnection({...});
 conn.connect();
 
@@ -66,7 +66,7 @@ console.log(result);
 TypeError: Cannot read property 'typeCast' of undefined
 ```
 
-これは、queryメソッドが実際に動作するときに、本来ならthis経由で得られるconnへの参照が失われたことで、connの持っている情報にアクセスできなくなるためです。
+これは、 `query` メソッドが実際に動作するときに、本来なら `this` 経由で得られる `conn` への参照が失われたことで、 `conn` の持っている情報(この場合は `typeCast` プロパティ)にアクセスできなくなるためです。
 
 ## bluebird, s6-prpmisify の場合
 このような問題を解決するために、 
