@@ -92,7 +92,7 @@ console.log(result);
 ## util.promisifyではどうするか
 [ドキュメント](https://nodejs.org/api/util.html#util_util_promisify_original)を読んだところ、 `this` を渡す方法は特に書かれていないようです。
 [コード](https://github.com/nodejs/node/blob/v8.0.0/lib/internal/util.js#L204)を読んでも、 `promisify` の引数経由で `this` を渡す方法は定義されていないようです。
-ですがよく見ると、 `promisify` の生成する関数は、その関数の `this` を元になった `this` として渡す挙動になっているようです。 ([参考](https://github.com/nodejs/node/blob/v8.0.0/lib/internal/util.js#L229))
+ですがよく見ると、 `promisify` の生成する関数は、その関数の `this` を元になった `this` として渡す挙動になっているようです([参考](https://github.com/nodejs/node/blob/v8.0.0/lib/internal/util.js#L229))。
 ですので、次のように、promisifyで生成された関数に `this` を束縛することで正しく動作させることができます。
 
 ```js
