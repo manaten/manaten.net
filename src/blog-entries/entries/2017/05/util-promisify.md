@@ -87,7 +87,7 @@ const result = await promisify(conn.query, conn)('SELECT 1 + 2 AS solution');
 console.log(result);
 ```
 
-どちらも、promisifyの第二引数で、何らかの形で `this` への参照を渡せるようになっています。
+どちらも、 `promisify` の第二引数で、何らかの形で `this` への参照を渡せるようになっています。
 
 ## util.promisifyではどうするか
 [ドキュメント](https://nodejs.org/api/util.html#util_util_promisify_original)を読んだところ、 `this` を渡す方法は特に書かれていないようです。
