@@ -68,7 +68,7 @@ TypeError: Cannot read property 'typeCast' of undefined
 
 これは、 `query` メソッドが実際に動作するときに、本来なら `this` 経由で得られる `conn` への参照が失われたことで、 `conn` の持っている情報(この場合は `typeCast` プロパティ)にアクセスできなくなるためです。
 
-## bluebird, s6-prpmisify の場合
+## bluebird, s6-promisify の場合
 このような問題を解決するために、 
 [bluebird](http://bluebirdjs.com/docs/api/promise.promisify.html) や
 [es6-promisify](https://www.npmjs.com/package/es6-promisify)
