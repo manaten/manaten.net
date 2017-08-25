@@ -3,9 +3,6 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const detectPort = require('detect-port');
-const deasync = require('deasync');
-
 const PATHS = {
   src : path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist')
@@ -71,9 +68,9 @@ const config = {
     ])
   ],
   devServer: {
-    host          : '0.0.0.0',
-    port          : process.env.PORT || deasync(detectPort)('8080'),
-    'content-base': PATHS.dist
-  }
+    host       : '',
+    port       : process.env.PORT || '8080',
+    contentBase: PATHS.dist,
+  },
 };
 module.exports = config;

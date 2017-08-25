@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [],
+    "redirects": [],
+    "headers": [],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+}

@@ -6,11 +6,11 @@
   "scripts": {
     "build": "webpack --progress",
     "debug": "webpack-dev-server",
-    "deploy": "run-s build deploy:gh-pages",
-    "deploy:gh-pages": "gh-pages -d dist -b gh-pages",
+    "deploy": "run-s build deploy:firebase",
+    "deploy:firebase": "firebase deploy",
     "watch": "webpack --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:staged": "lint-staged",
+    "precommit": "lint-staged",
     "lint:css": "stylelint \"src/assets/css/**/*.{css,less,scss,sss}\"",
     "lint": "run-s lint:css"
   },
@@ -27,32 +27,56 @@
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.14",
     "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.25.0",
-    "deasync": "^0.1.9",
-    "detect-port": "^1.0.5",
+    "css-loader": "^0.28.5",
     "editorconfig-tools": "^0.1.1",
-    "extract-loader": "^0.0.2",
-    "file-loader": "^0.9.0",
-    "gh-pages": "^0.12.0",
-    "html-loader": "^0.4.4",
+    "extract-loader": "^1.0.1",
+    "file-loader": "^0.11.2",
+    "firebase-tools": "^3.9.2",
+    "html-loader": "^0.5.1",
+    "husky": "^0.14.3",
     "lint-staged": "^3.3.1",
     "npm-run-all": "^4.0.1",
-    "postcss-cssnext": "^2.8.0",
-    "postcss-loader": "^1.1.1",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.5.1",
-    "pre-commit": "^1.2.2",
-    "pug-html-loader": "^1.0.9",
-    "stylefmt": "^5.1.2",
-    "stylelint": "^7.9.0",
-    "stylelint-config-standard": "^16.0.0",
+    "pug-html-loader": "^1.1.5",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-no-unsupported-browser-features": "^1.0.0",
     "url-loader": "^0.5.7",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^1.16.3"
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {},
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions",
+    "last 2 iOS versions",
+    "ie >= 11",
+    "> 5%"
+  ],
   "stylelint": {
     "extends": "stylelint-config-standard",
+    "plugins": [
+      "stylelint-no-unsupported-browser-features"
+    ],
     "rules": {
+      "plugin/no-unsupported-browser-features": [
+        true,
+        {
+          "ignore": [
+            "flexbox",
+            "viewport-units",
+            "border-image",
+            "outline"
+          ]
+        }
+      ],
+      "string-quotes": "single",
       "property-no-unknown": [
         true,
         {
@@ -71,15 +95,13 @@
       ]
     }
   },
-  "pre-commit": "lint:staged",
   "lint-staged": {
     "*.{cmd,html,json,md,sh,txt,xml,yml}": [
       "editorconfig-tools fix",
       "git add"
     ],
     "*.{css,less,scss,sss}": [
-      "stylefmt",
-      "stylelint",
+      "stylelint --fix",
       "git add"
     ]
   }
