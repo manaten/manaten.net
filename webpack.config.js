@@ -63,8 +63,7 @@ const config = {
   plugins  : [
     new CleanWebpackPlugin([PATHS.dist]),
     new CopyWebpackPlugin([
-      {from: 'blog-entries/images', to: 'wp-content/uploads'},
-      {from: 'CNAME', to: ''}
+      {from: 'blog-entries/images', to: 'wp-content/uploads'}
     ])
   ],
   devServer: {

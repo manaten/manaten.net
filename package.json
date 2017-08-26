@@ -7,7 +7,7 @@
     "build": "webpack --progress",
     "debug": "webpack-dev-server",
     "deploy": "run-s build deploy:firebase",
-    "deploy:firebase": "firebase deploy",
+    "deploy:firebase": "firebase deploy --only hosting",
     "watch": "webpack --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "lint-staged",
