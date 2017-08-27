@@ -79,6 +79,13 @@ Qiは使っておらず、参考にしたブログでもQiのコイルは外し�
 FGOをプレイしててもスマホが落ちなくなりました。
 Qi周りを壊したこともあり、若干不安はありますが、今後使っていく中で不具合があれば追記していこうと思います。
 
+## 追記
+
+バッテリーに関しては持ちがこんな感じになりました。最初の急な部分がFGOプレイ中で、以前はプレイ中に電源が落ちてしまったことを考えると
+すごく改善しました。
+
+![battery](https://manaten.net/wp-content/uploads/2017/08/nexus6-battery.png)
+
 
 # 参考
 - [Motorola Nexus 6 Battery Replacement Guide - RepairsUniverse - YouTube](https://www.youtube.com/watch?v=3jbZDD8-Yqs)

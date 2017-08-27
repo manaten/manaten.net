@@ -34,6 +34,7 @@
     "firebase-tools": "^3.9.2",
     "html-loader": "^0.5.1",
     "husky": "^0.14.3",
+    "imagemin-cli": "^3.0.0",
     "lint-staged": "^3.3.1",
     "npm-run-all": "^4.0.1",
     "postcss-cssnext": "^3.0.2",
@@ -102,6 +103,10 @@
     ],
     "*.{css,less,scss,sss}": [
       "stylelint --fix",
+      "git add"
+    ],
+    "*.{png,jpeg,jpg,gif}": [
+      "node ./scripts/imagemin.js",
       "git add"
     ]
   }
