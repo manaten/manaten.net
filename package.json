@@ -12,6 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "lint-staged",
     "lint:css": "stylelint \"src/assets/css/**/*.{css,less,scss,sss}\"",
+    "lint:text": "textlint \"src\"",
     "lint": "run-s lint:css"
   },
   "repository": {
@@ -45,6 +46,9 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-no-unsupported-browser-features": "^1.0.0",
+    "textlint": "^10.2.1",
+    "textlint-rule-preset-japanese": "^4.0.0",
+    "textlint-rule-preset-jtf-style": "^2.3.1",
     "url-loader": "^0.5.7",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
