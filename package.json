@@ -10,7 +10,7 @@
     "deploy:firebase": "firebase deploy --only hosting",
     "watch": "webpack --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged -c ./node_modules/@manaten/frontend-dev-tools/.lintstagedrc",
     "lint:css": "stylelint \"src/assets/css/**/*.{css,less,scss,sss}\"",
     "lint:text": "textlint \"src\"",
     "lint": "run-s lint:css"
@@ -26,16 +26,14 @@
   },
   "homepage": "http://manaten.net",
   "devDependencies": {
+    "@manaten/frontend-dev-tools": "https://github.com/manaten/frontend-dev-tools.git",
     "clean-webpack-plugin": "^0.1.14",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.5",
-    "editorconfig-tools": "^0.1.1",
     "extract-loader": "^1.0.1",
     "file-loader": "^0.11.2",
     "firebase-tools": "^3.9.2",
     "html-loader": "^0.5.1",
-    "husky": "^0.14.3",
-    "imagemin-cli": "^3.0.0",
     "lint-staged": "^4.0.4",
     "npm-run-all": "^4.0.1",
     "postcss-cssnext": "^3.0.2",
@@ -43,9 +41,6 @@
     "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.5.1",
     "pug-html-loader": "^1.1.5",
-    "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0",
-    "stylelint-no-unsupported-browser-features": "^1.0.0",
     "textlint": "^10.2.1",
     "textlint-rule-preset-japanese": "^4.0.0",
     "textlint-rule-preset-jtf-style": "^2.3.1",
@@ -65,53 +60,9 @@
     "> 5%"
   ],
   "stylelint": {
-    "extends": "stylelint-config-standard",
-    "plugins": [
-      "stylelint-no-unsupported-browser-features"
-    ],
-    "rules": {
-      "plugin/no-unsupported-browser-features": [
-        true,
-        {
-          "ignore": [
-            "flexbox",
-            "viewport-units",
-            "border-image",
-            "outline"
-          ]
-        }
-      ],
-      "string-quotes": "single",
-      "property-no-unknown": [
-        true,
-        {
-          "ignoreProperties": [
-            "composes"
-          ]
-        }
-      ],
-      "selector-pseudo-class-no-unknown": [
-        true,
-        {
-          "ignorePseudoClasses": [
-            "global"
-          ]
-        }
-      ]
-    }
+    "extends": "./node_modules/@manaten/frontend-dev-tools/.stylelintrc"
   },
-  "lint-staged": {
-    "*.{cmd,html,json,md,sh,txt,xml,yml}": [
-      "editorconfig-tools fix",
-      "git add"
-    ],
-    "*.{css,less,scss,sss}": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.{png,jpeg,jpg,gif}": [
-      "node ./scripts/imagemin.js",
-      "git add"
-    ]
+  "eslintConfig": {
+    "extends": "./node_modules/@manaten/frontend-dev-tools/.eslintrc"
   }
 }
