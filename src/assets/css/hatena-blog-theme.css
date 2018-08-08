@@ -346,6 +346,12 @@ a.keyword {
   & > ol {
     list-style: square outside none;
     margin: 0 0 1.125rem 1.5em;
+
+    & ul,
+    & ol {
+      list-style: circle outside none;
+      margin: 0 0 1.125rem 1.5em;
+    }
   }
 
   & .hatena-asin-detail li {
