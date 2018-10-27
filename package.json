@@ -4,16 +4,14 @@
   "description": "http://manaten.net source code.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress",
-    "debug": "webpack-dev-server",
+    "start": "react-static start",
+    "build": "react-static build",
+    "serve": "serve dist -p 3000",
     "deploy": "run-s build deploy:firebase",
     "deploy:firebase": "firebase deploy --only hosting",
-    "watch": "webpack --progress --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged -c ./node_modules/@manaten/frontend-dev-tools/.lintstagedrc",
-    "lint:css": "stylelint \"src/assets/css/**/*.{css,less,scss,sss}\"",
     "lint:text": "textlint \"src\"",
-    "lint": "run-s lint:css"
+    "lint-staged": "lint-staged -c ./node_modules/@manaten/frontend-dev-tools/.lintstagedrc",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -26,28 +24,34 @@
   },
   "homepage": "http://manaten.net",
   "devDependencies": {
-    "@manaten/frontend-dev-tools": "https://github.com/manaten/frontend-dev-tools.git",
-    "clean-webpack-plugin": "^0.1.14",
-    "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.28.5",
-    "extract-loader": "^1.0.1",
-    "file-loader": "^0.11.2",
+    "@manaten/frontend-dev-tools": "1.0.0",
+    "@types/node": "10.12.1",
+    "@types/react": "16.4.18",
+    "@types/react-dom": "16.0.9",
+    "@types/react-hot-loader": "4.1.0",
+    "@types/react-router": "4.0.32",
+    "@types/webpack-env": "1.13.6",
+    "chokidar": "2.0.4",
+    "extract-text-webpack-plugin": "3.0.2",
     "firebase-tools": "^3.9.2",
-    "html-loader": "^0.5.1",
-    "npm-run-all": "^4.0.1",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-flexbugs-fixes": "^3.2.0",
-    "postcss-loader": "^2.0.6",
-    "postcss-smart-import": "^0.5.1",
-    "pug-html-loader": "^1.1.5",
+    "node-sass": "4.9.4",
+    "sass-loader": "7.1.0",
+    "serve": "10.0.2",
     "textlint": "^10.2.1",
     "textlint-rule-preset-japanese": "^4.0.0",
     "textlint-rule-preset-jtf-style": "^2.3.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "ts-loader": "5.2.2",
+    "typescript": "3.1.4",
+    "typescript-eslint-parser": "20.1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "htmr": "0.7.0",
+    "jdown": "0.6.5",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "react-router": "4.3.1",
+    "react-static": "5.9.12"
+  },
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 Firefox versions",
@@ -58,10 +62,20 @@
     "ie >= 11",
     "> 5%"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-s lint-staged typecheck"
+    }
+  },
   "stylelint": {
     "extends": "./node_modules/@manaten/frontend-dev-tools/.stylelintrc"
   },
   "eslintConfig": {
-    "extends": "./node_modules/@manaten/frontend-dev-tools/.eslintrc"
+    "extends": "./node_modules/@manaten/frontend-dev-tools/.eslintrc",
+    "parser": "typescript-eslint-parser",
+    "rules": {
+      "no-undef": 0,
+      "no-unused-vars": 0
+    }
   }
 }
