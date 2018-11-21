@@ -1,15 +1,15 @@
+import React from 'react';
 import { reloadRoutes } from 'react-static/node';
 import path from 'path';
 import jdown from 'jdown';
 import chokidar from 'chokidar';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import { renderStylesToString } from 'emotion-server';
 
 // chokidar.watch('./src/contents').on('all', () => reloadRoutes());
 
 export default {
-  plugins: ['react-static-plugin-sass', 'react-static-plugin-preact'],
+  siteRoot: 'https://manaten.net/',
   entry: path.join(__dirname, 'src', 'app', 'index.tsx'),
-
   src: path.join(__dirname, 'src', 'app'),
   public: path.join(__dirname, 'src', 'public'),
 
@@ -30,43 +30,8 @@ export default {
       },
     ];
   },
-
-  webpack: (config, { defaultLoaders, stage }) => {
-    let loaders = [];
-
-    if (stage === 'dev') {
-      loaders = [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }];
-    } else {
-      loaders = [
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            minimize: stage === 'prod',
-            sourceMap: false,
-          },
-        },
-        {
-          loader: 'sass-loader',
-          options: { includePaths: ['src/'] },
-        },
-      ];
-
-      // Don't extract css to file during node build process
-      if (stage !== 'node') {
-        loaders = ExtractTextPlugin.extract({
-          fallback: {
-            loader: 'style-loader',
-            options: {
-              sourceMap: false,
-              hmr: false,
-            },
-          },
-          use: loaders,
-        });
-      }
-    }
-
+  renderToHtml: (render, Comp) => renderStylesToString(render(<Comp />)),
+  webpack: (config, { defaultLoaders }) => {
     config.resolve.extensions.push('.ts', '.tsx');
     config.module.rules = [
       {
@@ -85,10 +50,6 @@ export default {
                 },
               },
             ],
-          },
-          {
-            test: /\.s(a|c)ss$/,
-            use: loaders,
           },
           defaultLoaders.cssLoader,
           defaultLoaders.fileLoader,
