@@ -1,61 +1,46 @@
-import React from 'react';
-import { reloadRoutes } from 'react-static/node';
 import path from 'path';
-import jdown from 'jdown';
-import chokidar from 'chokidar';
-import { renderStylesToString } from 'emotion-server';
+// import jdown from 'jdown';
+// import chokidar from 'chokidar';
 
 // chokidar.watch('./src/contents').on('all', () => reloadRoutes());
 
 export default {
   siteRoot: 'https://manaten.net/',
-  entry: path.join(__dirname, 'src', 'app', 'index.tsx'),
-  src: path.join(__dirname, 'src', 'app'),
-  public: path.join(__dirname, 'src', 'public'),
+
+  paths: {
+    src: path.join('src', 'app'),
+    pages: path.join('src', 'app', 'pages'),
+    public: path.join('src', 'public'),
+  },
+
+  plugins: [
+    'react-static-plugin-typescript',
+    'react-static-plugin-preact',
+    'react-static-plugin-emotion',
+  ],
 
   getSiteData: () => ({
     title: 'まなドット',
   }),
 
   getRoutes: async () => {
-    // const contents = await jdown('./src/contents');
+    // const { data: posts } = await axios.get(
+    //   'https://jsonplaceholder.typicode.com/posts'
+    // )
     return [
-      {
-        path: '/',
-        component: 'src/app/containers/Home',
-      },
-      {
-        path: '/404',
-        component: 'src/app/containers/404',
-      },
+      // {
+      //   path: '/blog',
+      //   getData: () => ({
+      //     posts,
+      //   }),
+      //   children: posts.map(post => ({
+      //     path: `/post/${post.id}`,
+      //     component: 'src/containers/Post',
+      //     getData: () => ({
+      //       post,
+      //     }),
+      //   })),
+      // },
     ];
-  },
-  renderToHtml: (render, Comp) => renderStylesToString(render(<Comp />)),
-  webpack: (config, { defaultLoaders }) => {
-    config.resolve.extensions.push('.ts', '.tsx');
-    config.module.rules = [
-      {
-        oneOf: [
-          {
-            ...defaultLoaders.jsLoader,
-            test: /\.(js|jsx|ts|tsx)$/,
-            use: [
-              {
-                loader: 'babel-loader',
-              },
-              {
-                loader: 'ts-loader',
-                options: {
-                  transpileOnly: true,
-                },
-              },
-            ],
-          },
-          defaultLoaders.cssLoader,
-          defaultLoaders.fileLoader,
-        ],
-      },
-    ];
-    return config;
   },
 };

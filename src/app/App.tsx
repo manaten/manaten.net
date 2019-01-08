@@ -1,11 +1,11 @@
 import React from 'react';
-import { Router, Link } from 'react-static';
+import { Root, Routes } from 'react-static';
 import { hot } from 'react-hot-loader';
-import { injectGlobal } from 'react-emotion';
+import css from '@emotion/css';
+import { Global } from '@emotion/core';
+import { Link } from '@reach/router';
 
-import Routes from 'react-static-routes';
-
-injectGlobal`
+const globalStyle = css`
   body {
     padding: 0;
     margin: 0;
@@ -48,10 +48,11 @@ injectGlobal`
 `;
 
 const App = () => (
-  <Router>
+  <Root>
+    <Global styles={[ globalStyle ]} />
     <div>
       <nav>
-        <Link exact to="/">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/blog">Blog</Link>
       </nav>
@@ -59,7 +60,7 @@ const App = () => (
         <Routes />
       </div>
     </div>
-  </Router>
+  </Root>
 );
 
 export default hot(module)(App);
