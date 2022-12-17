@@ -357,6 +357,10 @@ a.keyword {
   & .hatena-asin-detail li {
     line-height: 1.4;
   }
+
+  & strong {
+    font-weight: bold;
+  }
 }
 
 /* entry-footer */
