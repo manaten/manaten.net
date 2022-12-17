@@ -14,6 +14,10 @@ categories: []
 - レガシーな環境でTypeScriptを導入しづらいが、複雑化するコードベースを少しでも楽に保守したい人
 - TypeScriptに興味があるが、昨今のjsのツールチェインについていけず、とりあえず試してみたい人
 
+
+<!-- more -->
+
+
 # @ts-checkとは
 
 @ts-checkとは、JavaScriptファイルの先頭に `//@ts-check` というコメントをすることで、TypeScriptコンパイラや、TypeScriptを標準で型チェックできる [VSCode](https://code.visualstudio.com/) により、JavaScriptファイルに対してTypeScript相当の型チェックを行う事ができる仕組みです。

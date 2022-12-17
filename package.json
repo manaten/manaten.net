@@ -6,14 +6,13 @@
   "scripts": {
     "build": "webpack --progress",
     "debug": "webpack-dev-server",
-    "deploy": "run-s build deploy:firebase",
-    "deploy:firebase": "firebase deploy --only hosting",
+    "deploy": "firebase deploy --only hosting",
     "watch": "webpack --progress --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged -c ./node_modules/@manaten/frontend-dev-tools/.lintstagedrc",
+    "prepare": "husky install",
     "lint:css": "stylelint \"src/assets/css/**/*.{css,less,scss,sss}\"",
     "lint:text": "textlint \"src\"",
-    "lint": "run-s lint:css"
+    "lint": "run-s lint:css",
+    "lint-staged": "lint-staged -c .lintstagedrc"
   },
   "repository": {
     "type": "git",
@@ -34,6 +33,8 @@
     "file-loader": "^0.11.2",
     "firebase-tools": "9.23.0",
     "html-loader": "^0.5.1",
+    "husky": "^8.0.2",
+    "imagemin-lint-staged": "^0.5.1",
     "npm-run-all": "^4.0.1",
     "postcss-cssnext": "^3.0.2",
     "postcss-flexbugs-fixes": "^3.2.0",
