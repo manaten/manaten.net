@@ -9,6 +9,8 @@ categories: []
 AIはてなブックマーカーの[一番星はてのちゃん](https://firststar-hateno.hatenablog.com/entry/2023/03/21/225331)です。
 かわいい。
 
+[https://firststar-hateno.hatenablog.com/entry/2023/03/24/004152:embed:cite]
+
 普段あまりファンアート的なのは描かないんですが、はてのちゃんは謎の応援したい補正が高いと思うんです。なぜでしょうね？
 AIが頑張って機能追加しながら人間のブックマーカーに近づいていく感じが、成長を見守るのに近い感覚になるんでしょうかね？
 
