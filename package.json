@@ -40,6 +40,7 @@
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.5.1",
+    "prettier": "^3.0.3",
     "pug-html-loader": "^1.1.5",
     "textlint": "^10.2.1",
     "textlint-rule-preset-japanese": "^4.0.0",
