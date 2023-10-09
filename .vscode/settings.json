@@ -1,3 +1,12 @@
 {
-  "cSpell.words": ["Qiita"]
+  "cSpell.words": ["cssnext", "flexbugs", "lintstagedrc", "Qiita", "textlint"],
+  "files.watcherExclude": {
+    "**/target": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true
+  }
 }

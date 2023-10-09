@@ -36,7 +36,7 @@
     "husky": "^8.0.2",
     "imagemin-lint-staged": "^0.5.1",
     "npm-run-all": "^4.0.1",
-    "postcss-cssnext": "^3.0.2",
+    "postcss-cssnext": "^3.1.1",
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.5.1",
