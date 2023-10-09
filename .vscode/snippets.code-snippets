@@ -1,0 +1,27 @@
+{
+  "Blog entry": {
+    "scope": "markdown",
+    "description": "Blog entry",
+    "prefix": ["blog"],
+    "body": [
+      "<!--",
+      "title: ",
+      "date:  2023-10-01 19:00",
+      "categories: []",
+      "-->",
+      "",
+      "# 三行で",
+      "",
+      "- a",
+      "- b",
+      "- c",
+      "",
+      "# 画像サンプル",
+      "",
+      "![jagaximo](https://manaten.net/wp-content/uploads/2023/09/jagaximo.png)",
+      "",
+      "<!-- more -->",
+      ""
+    ]
+  }
+}
