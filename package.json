@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "http://manaten.net source code.",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "webpack --progress",
     "debug": "webpack-dev-server",
