@@ -140,3 +140,16 @@ Macbookとの相性に多少の難はあれど、モニタ本体は発色も気�
 また、簡易放電もケーブル類を抜かずに電源長押しして再起動するだけでも改善することがわかりました。長押し後の起動時にDellのスプラッシュが表示されるため、内部的にスタンバイではなく再起動的な動きをしていそうです。
 
 いったんいつかファームウェアアップデートで改善することを祈りながら、週一くらいで電源長押しでリセットすることを意識すれば、問題なく使えそうではありました。
+
+## (2025/01/11追記)
+
+[BugZero | Dell BugID 227501 - Dell P3424WE Monitor USB and Network Disconnect Wh...](https://www.findbugzero.com/operational-defect-database/vendors/dell/defects/227501)
+
+> Resolution
+> Updating to Dell_P3424WE_FWUpdate_M2B104_Windows version M2B104 or later on the computer resolves the issue. To download and install the firmware, reference How to Download and Install Dell Drivers.
+
+知らないうちにファームウェアが更新されており、このエントリによるとファームウェアアップデートすることで｢勝手にUSBだけスイッチされてしまう問題｣は解決するようです。
+一旦軽く試してみたところ再現はしなくなったようですが、もともと確率で発生していたのでまたしばらく利用してみます。
+
+ちなみに、このアップデートまでの間、｢PIPモードで利用し、USBがスイッチされてしまったらPIPのUSB切り替えでもとのPCに入力を戻す｣という対応でごまかし利用していました。
+通常モードでは画面切り替えとUSB切り替えが連動しているので、一回入力切替をしないとスイッチをもとに戻せないのですが、PIPでは両画面を表示した状態でUSBスイッチだけ行うことができるのです。
