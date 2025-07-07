@@ -100,7 +100,7 @@ Googleアカウントによる複数端末間の同期までついているた�
 履歴を扱う以上、プライバシー面が気になる方もいると思います。
 権限的には、外部通信は一切許可せず、履歴APIとブックマークAPI、faviconのためのfavicon権限、設定保存のためのstorageAPIで完結するようにしています。
 
-![Eternal Historyの権限](permissions.png)
+![Eternal Historyの権限](https://manaten.net/wp-content/uploads/2025/07/permissions.png)
 
 また、[github](https://github.com/manaten/eternal-history)でソースコードを公開してますので、コードが読める方はこちらも確認していただけると良いと思います。
 
